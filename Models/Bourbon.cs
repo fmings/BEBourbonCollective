@@ -2,5 +2,14 @@
 {
     public class Bourbon
     {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public int DistilleryId { get; set; }
+        public Distillery Distillery { get; set; }
+        public string Name { get; set; }
+        public bool OpenBottle { get; set; }
+        public bool EmptyBottle { get; set; }
+
     }
 }
