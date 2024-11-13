@@ -1,13 +1,20 @@
-﻿namespace BEBourbonCollective.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BEBourbonCollective.Models
 {
     public class TradeRequest
     {
         public int Id { get; set; }
-        public string RequestingUserId { get; set; }
+        
+        [ForeignKey("RequestingUser")]
+        public int RequestingUserId { get; set; }
         public User RequestingUser { get; set; }
+
         public int RequestingBourbonId { get; set; }
         public Bourbon RequestingFromBourbon { get; set; }
-        public string RequestedFromUserId { get; set; }
+
+        [ForeignKey("RequestedFromUser")]
+        public int RequestedFromUserId { get; set; }
         public User RequestedFromUser { get; set; }
         public int RequestedFromBourbonId { get; set; }
         public Bourbon RequestedFromBourbon { get; set; }

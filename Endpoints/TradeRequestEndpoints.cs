@@ -2,5 +2,9 @@
 {
     public class TradeRequestEndpoints
     {
+        public static void Map(WebApplication app)
+        {
+
+        }
     }
 }
