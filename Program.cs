@@ -1,3 +1,10 @@
+using System.Text.Json.Serialization;
+using BEBourbonCollective;
+using BEBourbonCollective.Endpoints;
+using BEBourbonCollective.Interfaces;
+using BEBourbonCollective.Services;
+using Microsoft.AspNetCore.Http.Json;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,9 +12,44 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
+    });
+});
+
+// Allows passing datetimes without time zone data 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+// Allows our API endpoints to access the database through Entity Framework Core
+builder.Services.AddNpgsql<BourbonCollectiveDbContext>(builder.Configuration["BourbonCollectiveDbConnectionString"]);
+
+// Set the JSON serializer options
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+
+// builder.Services.AddScoped<IBourbonService, BourbonService>();
+// builder.Services.AddScoped<IDistilleryService, DistilleryService>();
+// builder.Services.AddScoped<ITradeRequestService, TradeRequestService>();
+// builder.Services.AddScoped<IUserBourbonService, UserBourbonService>();
+// builder.Services.AddScoped<IUserService, UserService>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseHttpsRedirection();
+
+// Use CORS
+app.UseCors();
+
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -16,29 +58,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+// Endpoints
+BourbonEndpoints.Map(app);
+DistilleryEndpoints.Map(app);
+TradeRequestEndpoints.Map(app);
+UserBourbonEndpoints.Map(app);
+UserEndpoints.Map(app);
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
