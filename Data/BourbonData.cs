@@ -1,4 +1,6 @@
-﻿namespace BEBourbonCollective.Models
+﻿using System.Diagnostics;
+
+namespace BEBourbonCollective.Models
 {
     public class BourbonData
     {
@@ -6,13 +8,23 @@
         {
             new Bourbon
             {
-                Id = ,
-                UserId = ,
-                DistilleryId = ,
-                Name = ,
-                OpenBottle ,
-                EmptyBottle ,
-            }
+                Id = 1,
+                UserId = 1,
+                DistilleryId = 1,
+                Name = "Buffalo Trace Kentucky Straight Bourbon Whiskey",
+                OpenBottle = true,
+                EmptyBottle = false,
+            },
+
+            new Bourbon
+            {
+                Id = 2,
+                UserId = 1,
+                DistilleryId = 2,
+                Name = "Straight Bourbon Whiskey",
+                OpenBottle = false,
+                EmptyBottle = false,
+            },
         };
     }
 }

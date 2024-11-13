@@ -17,31 +17,31 @@ namespace BEBourbonCollective.Data
             new Distillery
             {
                 Id = 2,
-                Name = "Buffalo Trace",
-                City = "Frankfort",
+                Name = "Woodford Reserve",
+                City = "Versailles",
                 State = "Kentucky",
             },
 
             new Distillery
             {
                 Id = 3,
-                Name = "Buffalo Trace",
-                City = "Frankfort",
+                Name = "Maker's Mark",
+                City = "Loretto",
                 State = "Kentucky",
             },
 
             new Distillery
             {
                 Id = 4,
-                Name = "Buffalo Trace",
-                City = "Frankfort",
+                Name = "Four Roses",
+                City = "Lawrenceburg",
                 State = "Kentucky",
             },
 
             new Distillery
             {
                 Id = 5,
-                Name = "Buffalo Trace",
+                Name = "Whiskey Thief",
                 City = "Frankfort",
                 State = "Kentucky",
             },
@@ -49,32 +49,40 @@ namespace BEBourbonCollective.Data
             new Distillery
             {
                 Id = 6,
-                Name = "Buffalo Trace",
+                Name = "Willett",
+                City = "Bardstown",
+                State = "Kentucky",
+            },
+
+            new Distillery
+            {
+                Id = 7,
+                Name = "Castle & Key",
                 City = "Frankfort",
                 State = "Kentucky",
             },
 
             new Distillery
             {
-                Id = 1,
-                Name = "Buffalo Trace",
-                City = "Frankfort",
+                Id = 8,
+                Name = "Evan Williams",
+                City = "Louisville",
                 State = "Kentucky",
             },
 
             new Distillery
             {
-                Id = 1,
-                Name = "Buffalo Trace",
-                City = "Frankfort",
+                Id = 9,
+                Name = "Stitzel-Weller",
+                City = "Shively",
                 State = "Kentucky",
             },
 
             new Distillery
             {
-                Id = 1,
-                Name = "Buffalo Trace",
-                City = "Frankfort",
+                Id = 10,
+                Name = "Angel's Envy",
+                City = "Lousiville",
                 State = "Kentucky",
             }
         };
