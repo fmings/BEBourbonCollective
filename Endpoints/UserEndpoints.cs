@@ -1,4 +1,5 @@
 ﻿using BEBourbonCollective.Interfaces;
+using BEBourbonCollective.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BEBourbonCollective.Endpoints
@@ -17,6 +18,13 @@ namespace BEBourbonCollective.Endpoints
                     return Results.NotFound("user not found");
                 }
                 return Results.Ok(user);
+            });
+
+            // Register user
+            app.MapPost("/register", async (IUserService userService, User user) =>
+            {
+                var newUser = await userService.RegisterUserAsync(user);
+                return Results.Created($"/users/{newUser.Id}", newUser);
             });
         }
     }

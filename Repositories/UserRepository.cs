@@ -18,5 +18,13 @@ namespace BEBourbonCollective.Repositories
         {
             return await dbContext.Users.FirstOrDefaultAsync(u => u.FirebaseId == uid);
         }
+
+        // Register User
+        public async Task<User> RegisterUserAsync(User newUser)
+        {
+            await dbContext.Users.AddAsync(newUser);
+            await dbContext.SaveChangesAsync();
+            return newUser;
+        }
     }
 }

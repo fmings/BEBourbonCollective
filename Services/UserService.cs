@@ -16,5 +16,10 @@ namespace BEBourbonCollective.Services
         {
             return await _userRepository.CheckUserAsync(uid);
         }
+
+        public async Task<User> RegisterUserAsync(User newUser)
+        {
+            return await _userRepository.RegisterUserAsync(newUser);
+        }
     }
 }
