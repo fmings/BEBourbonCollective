@@ -1,4 +1,5 @@
 ﻿using BEBourbonCollective.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BEBourbonCollective.Endpoints
 {
@@ -7,7 +8,7 @@ namespace BEBourbonCollective.Endpoints
         public static void Map(WebApplication app)
         {
             // CHECK USERS
-            app.MapGet("/checkUser/{uid}", async (IUserService userService, string uid) => 
+            app.MapGet("/checkUser/{uid}", async ([FromServices] IUserService userService, string uid) => 
             {
                 var user = await userService.CheckUserAsync(uid);
 
