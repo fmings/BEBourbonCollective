@@ -46,5 +46,19 @@ namespace BEBourbonCollective.Repositories
             return userBourbonToUpdate;
         }
 
+        public async Task<UserBourbon> DeleteUserBourbonAsync(int userBourbonId)
+        {
+            var userBourbonToDelete = await dbContext.UserBourbons.FirstOrDefaultAsync(ub => ub.Id == userBourbonId);
+
+            if (userBourbonToDelete == null)
+            {
+                return null;
+            }
+
+            dbContext.UserBourbons.Remove(userBourbonToDelete);
+            await dbContext.SaveChangesAsync();
+            return userBourbonToDelete;
+        }
+
     }
 }

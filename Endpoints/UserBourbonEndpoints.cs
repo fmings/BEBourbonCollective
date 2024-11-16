@@ -25,6 +25,13 @@ namespace BEBourbonCollective.Endpoints
                 var userBourbonToUpdate = await userBourbonService.UpdateUserBourbonAsync(userBourbonId, updatedUserBourbon);
                 return Results.Ok(userBourbonToUpdate);
             });
+
+            // Delete a Single UserBourbon
+            app.MapDelete("/userBourbons/{userBourbonId}", async (IUserBourbonService userBourbonService, int userBourbonId) =>
+            {
+                var userBourbonToDelete = await userBourbonService.DeleteUserBourbonAsync(userBourbonId);
+                return Results.NoContent();
+            });
         }
     }
 }
