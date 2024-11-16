@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using BEBourbonCollective;
 using BEBourbonCollective.Endpoints;
 using BEBourbonCollective.Interfaces;
+using BEBourbonCollective.Repositories;
 using BEBourbonCollective.Services;
 using Microsoft.AspNetCore.Http.Json;
 
@@ -40,7 +41,8 @@ builder.Services.Configure<JsonOptions>(options =>
 // builder.Services.AddScoped<IDistilleryService, DistilleryService>();
 // builder.Services.AddScoped<ITradeRequestService, TradeRequestService>();
 // builder.Services.AddScoped<IUserBourbonService, UserBourbonService>();
-// builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
