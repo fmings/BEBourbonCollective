@@ -1,4 +1,5 @@
 ﻿using BEBourbonCollective.Interfaces;
+using BEBourbonCollective.Models;
 
 namespace BEBourbonCollective.Endpoints
 {
@@ -10,6 +11,11 @@ namespace BEBourbonCollective.Endpoints
             app.MapGet("/tradeRequests/user/{userId}", async (ITradeRequestService tradeRequestService, int userId) =>
             {
                 return await tradeRequestService.GetAllPendingTradeRequestsByUser(userId);
+            });
+
+            app.MapPost("/tradeRequests", async (ITradeRequestService tradeRequestService, TradeRequest newTradeRequest) =>
+            {
+                return await tradeRequestService.AddTradeRequestAsync(newTradeRequest);
             });
         }
     }

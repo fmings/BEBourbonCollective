@@ -13,7 +13,12 @@ namespace BEBourbonCollective.Services
         }
         public async Task<List<TradeRequest>> GetAllPendingTradeRequestsByUser(int userId)
         {
-            return await GetAllPendingTradeRequestsByUser(userId);
+            return await _tradeRequestRepository.GetAllPendingTradeRequestsByUser(userId);
+        }
+
+        public async Task<TradeRequest> AddTradeRequestAsync(TradeRequest newTradeRequest)
+        {
+            return await _tradeRequestRepository.AddTradeRequestAsync(newTradeRequest);
         }
     }
 }
