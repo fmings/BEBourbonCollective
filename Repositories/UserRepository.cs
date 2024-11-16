@@ -26,5 +26,37 @@ namespace BEBourbonCollective.Repositories
             await dbContext.SaveChangesAsync();
             return newUser;
         }
+
+         // Get Single User
+         public async Task<User?> GetSingleUserAsync(int id)
+        {
+            return await dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+        }
+
+        // Get All Users
+        public async Task<List<User>> GetAllUsersAsync()
+        {
+            return await dbContext.Users.ToListAsync();
+        }
+
+        // Update Single User
+        public async Task<User?> UpdateSingleUserAsync(int id, User updatedUser)
+        {
+            var userToUpdate = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+            
+            if (userToUpdate == null) 
+            {
+                return null;
+            }
+
+            userToUpdate.Username = updatedUser.Username;
+            userToUpdate.FullName = updatedUser.FullName;
+            userToUpdate.Email = updatedUser.Email;
+            userToUpdate.City = updatedUser.City;
+            userToUpdate.State = updatedUser.State;
+
+            await dbContext.SaveChangesAsync();
+            return userToUpdate;
+        }
     }
 }
