@@ -24,6 +24,12 @@ namespace BEBourbonCollective.Endpoints
             {
                 return await tradeRequestService.UpdateTradeRequestAsync(tradeRequestId, updatedTradeRequest);
             });
+
+            // Delete a Single Trade Request
+            app.MapDelete("/tradeRequests/{tradeRequestId}", async (ITradeRequestService tradeRequestService, int tradeRequestId) =>
+            {
+                return await tradeRequestService.DeleteTradeRequestAsync(tradeRequestId);
+            });
         }
     }
 }

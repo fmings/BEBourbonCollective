@@ -52,5 +52,20 @@ namespace BEBourbonCollective.Repositories
             await dbContext.SaveChangesAsync();
             return tradeRequestToUpdate;
         }
+
+        // Delete a Single Trade Request
+        public async Task<TradeRequest> DeleteTradeRequestAsync(int tradeRequestId)
+        {
+            var tradeRequestToDelete = await dbContext.TradeRequests.FirstOrDefaultAsync(tr => tr.Id == tradeRequestId);
+
+            if (tradeRequestToDelete == null)
+            {
+                return null;
+            }
+
+            dbContext.TradeRequests.Remove(tradeRequestToDelete);
+            await dbContext.SaveChangesAsync();
+            return tradeRequestToDelete;
+        }
     }
 }
