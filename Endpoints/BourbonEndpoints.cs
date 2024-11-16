@@ -24,6 +24,12 @@ namespace BEBourbonCollective.Endpoints
             {
                 return await bourbonService.UpdateSingleBourbonAsync(id, updatedBourbon);
             });
+
+            // Delete a Single Bourbon
+            app.MapDelete("bourbons/{id}", async (IBourbonService bourbonService, int id) =>
+            {
+                return await bourbonService.DeleteSingleBourbonAsync(id);
+            });
         }
     }
 }

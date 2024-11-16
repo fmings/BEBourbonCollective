@@ -9,6 +9,7 @@ namespace BEBourbonCollective.Interfaces
         Task<Bourbon> AddBourbonAsync(Bourbon newBourbon);
         Task<Bourbon?> UpdateSingleBourbonAsync(int id, Bourbon newBourbon);
 
+        Task<Bourbon?> DeleteSingleBourbonAsync(int id);
 
     }
 }

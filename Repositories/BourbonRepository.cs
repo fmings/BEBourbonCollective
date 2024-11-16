@@ -32,7 +32,7 @@ namespace BEBourbonCollective.Repositories
         // Update a Single Bourbon
         public async Task<Bourbon?> UpdateSingleBourbonAsync(int id, Bourbon updatedBourbon)
         {
-            var bourbonToUpdate = await dbContext.Bourbons.FirstOrDefaultAsync(u => u.Id == id);
+            var bourbonToUpdate = await dbContext.Bourbons.FirstOrDefaultAsync(b => b.Id == id);
 
             if (bourbonToUpdate == null)
             {
@@ -46,6 +46,20 @@ namespace BEBourbonCollective.Repositories
 
             await dbContext.SaveChangesAsync();
             return bourbonToUpdate;
+        }
+
+        // Delete a Single Bourbon
+        public async Task<Bourbon?> DeleteSingleBourbonAsync(int id)
+        {
+            var bourbonToDelete = await dbContext.Bourbons.FirstOrDefaultAsync(b => b.Id == id);
+
+            if (bourbonToDelete == null)
+            {
+                return null;
+            }
+            dbContext.Bourbons.Remove(bourbonToDelete);
+            await dbContext.SaveChangesAsync();
+            return bourbonToDelete;
         }
     }
 }
