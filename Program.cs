@@ -37,7 +37,8 @@ builder.Services.Configure<JsonOptions>(options =>
     options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
-// builder.Services.AddScoped<IBourbonService, BourbonService>();
+builder.Services.AddScoped<IBourbonService, BourbonService>();
+builder.Services.AddScoped<IBourbonRepository, BourbonRepository>();
 // builder.Services.AddScoped<IDistilleryService, DistilleryService>();
 // builder.Services.AddScoped<ITradeRequestService, TradeRequestService>();
 // builder.Services.AddScoped<IUserBourbonService, UserBourbonService>();
