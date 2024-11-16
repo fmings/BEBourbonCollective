@@ -20,5 +20,11 @@ namespace BEBourbonCollective.Services
         {
             return await _tradeRequestRepository.AddTradeRequestAsync(newTradeRequest);
         }
+
+        public async Task<TradeRequest> UpdateTradeRequestAsync(int tradeRequestId, TradeRequest updatedTradeRequest)
+        {
+            return await _tradeRequestRepository.UpdateTradeRequestAsync(tradeRequestId, updatedTradeRequest);
+        }
+
     }
 }

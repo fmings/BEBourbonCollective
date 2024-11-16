@@ -31,5 +31,26 @@ namespace BEBourbonCollective.Repositories
             await dbContext.SaveChangesAsync();
             return newTradeRequest;
         }
+
+        // Update Single Trade Request
+        public async Task<TradeRequest> UpdateTradeRequestAsync(int tradeRequestId, TradeRequest updatedTradeRequest)
+        {
+            var tradeRequestToUpdate = await dbContext.TradeRequests.FirstOrDefaultAsync(tr => tr.Id == tradeRequestId);
+
+            if (tradeRequestToUpdate == null)
+            {
+                return null;
+            }
+
+            tradeRequestToUpdate.RequestingUserId = updatedTradeRequest.RequestingUserId;
+            tradeRequestToUpdate.RequestingBourbonId = updatedTradeRequest.RequestingBourbonId;
+            tradeRequestToUpdate.RequestedFromUserId = updatedTradeRequest.RequestedFromUserId;
+            tradeRequestToUpdate.RequestedFromBourbonId = updatedTradeRequest.RequestedFromBourbonId;
+            tradeRequestToUpdate.Pending = updatedTradeRequest.Pending;
+            tradeRequestToUpdate.Approved = updatedTradeRequest.Approved;
+
+            await dbContext.SaveChangesAsync();
+            return tradeRequestToUpdate;
+        }
     }
 }
