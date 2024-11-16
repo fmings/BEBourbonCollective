@@ -27,6 +27,7 @@ namespace BEBourbonCollective.Repositories
             return newDistillery;
         }
 
+        // Update a Single Distillery
         public async Task<Distillery> UpdateDistilleryAsync(int distilleryId, Distillery updatedDistillery)
         {
             var distilleryToUpdate = await dbContext.Distilleries.FirstOrDefaultAsync(d => d.Id == distilleryId);

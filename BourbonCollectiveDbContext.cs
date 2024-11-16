@@ -20,6 +20,18 @@ namespace BEBourbonCollective
             modelBuilder.Entity<Distillery>().HasData(DistilleryData.Distilleries);
             modelBuilder.Entity<UserBourbon>().HasData(UserBourbonData.UserBourbons);
             modelBuilder.Entity<User>().HasData(UserData.Users);
+
+            modelBuilder.Entity<TradeRequest>()
+                .HasOne(tr => tr.RequestedFromBourbon)
+                .WithMany()
+                .HasForeignKey(tr => tr.RequestedFromBourbonId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<TradeRequest>()
+                .HasOne(tr => tr.RequestingFromBourbon)
+                .WithMany()
+                .HasForeignKey(tr => tr.RequestingBourbonId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
