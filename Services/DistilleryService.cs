@@ -20,5 +20,10 @@ namespace BEBourbonCollective.Services
         {
             return await _distilleryRepository.AddDistilleryAsync(newDistillery);
         }
+
+        public async Task<Distillery> UpdateDistilleryAsync(int distilleryId, Distillery updatedDistillery)
+        {
+            return await _distilleryRepository.UpdateDistilleryAsync(distilleryId, updatedDistillery);
+        }
     }
 }

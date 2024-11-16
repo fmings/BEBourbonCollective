@@ -26,5 +26,22 @@ namespace BEBourbonCollective.Repositories
             await dbContext.SaveChangesAsync();
             return newDistillery;
         }
+
+        public async Task<Distillery> UpdateDistilleryAsync(int distilleryId, Distillery updatedDistillery)
+        {
+            var distilleryToUpdate = await dbContext.Distilleries.FirstOrDefaultAsync(d => d.Id == distilleryId);
+
+            if (distilleryToUpdate == null)
+            {
+                return null;
+            }
+
+            distilleryToUpdate.Name = updatedDistillery.Name;
+            distilleryToUpdate.City = updatedDistillery.City;
+            distilleryToUpdate.State = updatedDistillery.State;
+
+            await dbContext.SaveChangesAsync();
+            return distilleryToUpdate;
+        }
     }
 }
