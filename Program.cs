@@ -39,7 +39,8 @@ builder.Services.Configure<JsonOptions>(options =>
 
 builder.Services.AddScoped<IBourbonService, BourbonService>();
 builder.Services.AddScoped<IBourbonRepository, BourbonRepository>();
-// builder.Services.AddScoped<IDistilleryService, DistilleryService>();
+builder.Services.AddScoped<IDistilleryService, DistilleryService>();
+builder.Services.AddScoped<IDistilleryRepository, DistilleryRepository>();
 // builder.Services.AddScoped<ITradeRequestService, TradeRequestService>();
 builder.Services.AddScoped<IUserBourbonService, UserBourbonService>();
 builder.Services.AddScoped<IUserBourbonRepository, UserBourbonRepository>();
