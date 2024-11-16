@@ -12,9 +12,19 @@ namespace BEBourbonCollective.Services
             _bourbonRepository = bourbonRepository;
         }
 
-        public async Task <List<Bourbon>> GetAllBourbonsAsync()
+        public async Task<List<Bourbon>> GetAllBourbonsAsync()
         {
             return await _bourbonRepository.GetAllBourbonsAsync();
+        }
+
+        public async Task<Bourbon> AddBourbonAsync(Bourbon newBourbon)
+        {
+            return await _bourbonRepository.AddBourbonAsync(newBourbon);
+        }
+
+        public async Task<Bourbon?> UpdateSingleBourbonAsync(int id, Bourbon updatedBourbon)
+        {
+            return await _bourbonRepository.UpdateSingleBourbonAsync(id, updatedBourbon);
         }
     }
 }

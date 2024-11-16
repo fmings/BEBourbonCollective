@@ -1,4 +1,5 @@
 ﻿using BEBourbonCollective.Interfaces;
+using BEBourbonCollective.Models;
 
 namespace BEBourbonCollective.Endpoints
 {
@@ -10,6 +11,18 @@ namespace BEBourbonCollective.Endpoints
             app.MapGet("/bourbons", async (IBourbonService bourbonService) =>
             {
                 return await bourbonService.GetAllBourbonsAsync();
+            });
+
+            // Add a Bourbon
+            app.MapPost("/bourbons", async (IBourbonService bourbonService, Bourbon newBourbon) =>
+            {
+                return await bourbonService.AddBourbonAsync(newBourbon);
+            });
+
+            // Update a Single Bourbon
+            app.MapPut("/bourbons/{id}", async (IBourbonService bourbonService, int id, Bourbon updatedBourbon) =>
+            {
+                return await bourbonService.UpdateSingleBourbonAsync(id, updatedBourbon);
             });
         }
     }
