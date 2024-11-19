@@ -41,6 +41,7 @@ namespace BEBourbonCollective.Repositories
 
             bourbonToUpdate.DistilleryId = updatedBourbon.DistilleryId;
             bourbonToUpdate.Name = updatedBourbon.Name;
+            bourbonToUpdate.Image = updatedBourbon.Image;
             bourbonToUpdate.OpenBottle = updatedBourbon.OpenBottle;
             bourbonToUpdate.EmptyBottle = updatedBourbon.EmptyBottle;
 

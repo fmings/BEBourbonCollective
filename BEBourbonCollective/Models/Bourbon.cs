@@ -8,6 +8,7 @@
         public int DistilleryId { get; set; }
         public Distillery Distillery { get; set; }
         public string Name { get; set; }
+        public string ?Image { get; set; }
         public bool OpenBottle { get; set; }
         public bool EmptyBottle { get; set; }
 
