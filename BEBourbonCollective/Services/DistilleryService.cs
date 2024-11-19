@@ -25,5 +25,11 @@ namespace BEBourbonCollective.Services
         {
             return await _distilleryRepository.UpdateDistilleryAsync(distilleryId, updatedDistillery);
         }
+
+        public async Task<Distillery?> DeleteSingleDistilleryAsync(int id)
+        {
+            return await _distilleryRepository.DeleteSingleDistilleryAsync(id);
+        }
+
     }
 }

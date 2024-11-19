@@ -7,5 +7,7 @@ namespace BEBourbonCollective.Interfaces
         Task<List<Distillery>> GetAllDistilleries();
         Task<Distillery> AddDistilleryAsync(Distillery newDistillery);
         Task<Distillery> UpdateDistilleryAsync(int distilleryId, Distillery updatedDistillery);
+
+        Task<Distillery?> DeleteSingleDistilleryAsync(int id);
     }
 }

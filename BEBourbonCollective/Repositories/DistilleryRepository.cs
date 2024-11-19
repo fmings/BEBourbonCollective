@@ -44,5 +44,19 @@ namespace BEBourbonCollective.Repositories
             await dbContext.SaveChangesAsync();
             return distilleryToUpdate;
         }
+
+        // Delete a Single Distillery
+        public async Task<Distillery?> DeleteSingleDistilleryAsync(int id)
+        {
+            var distilleryToDelete = await dbContext.Distilleries.FirstOrDefaultAsync(d => d.Id == id);
+
+            if (distilleryToDelete == null)
+            {
+                return null;
+            }
+            dbContext.Distilleries.Remove(distilleryToDelete);
+            await dbContext.SaveChangesAsync();
+            return distilleryToDelete;
+        }
     }
 }

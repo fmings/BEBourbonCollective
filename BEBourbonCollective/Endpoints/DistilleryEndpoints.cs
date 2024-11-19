@@ -22,6 +22,11 @@ namespace BEBourbonCollective.Endpoints
             {
                 return await distilleryService.UpdateDistilleryAsync(distilleryId, updatedDistillery);
             });
+
+            app.MapDelete("/distilleries/{distilleryId}", async (IDistilleryService distilleryService, int distilleryId) =>
+            {
+                return await distilleryService.DeleteSingleDistilleryAsync(distilleryId);
+            });
         }
     }
 }
