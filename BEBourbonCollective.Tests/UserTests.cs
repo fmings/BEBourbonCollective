@@ -76,7 +76,7 @@ namespace BEBourbonCollective.Tests
         }
 
         [Fact]
-        public async Task UpdateSingleUserAsync_ShouldReturnUpdatedPlaylist_WhenPlaylistExists()
+        public async Task UpdateSingleUserAsync_ShouldReturnUpdatedUser_WhenUserExists()
         {
             // Arrange
             var updatedUser = new User
