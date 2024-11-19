@@ -97,7 +97,7 @@ namespace BEBourbonCollective.Tests
         }
 
         [Fact]
-        public async Task DeleteUserBourbonAsync_ShouldReturnNoContent_WhenUserBourbonDeleted()
+        public async Task DeleteUserBourbonAsync_ShouldReturnDeletedUserBourbon_WhenUserBourbonDeleted()
         {
             // Arrange
             var userBourbonId = 1;
