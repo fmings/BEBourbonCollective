@@ -107,7 +107,8 @@ Launch the solution. Swagger should automatically launch and provide you with th
 ## 📄 Postman Documentation
 
 Check out the [Bourbon Collective Postman Documentation](https://documenter.getpostman.com/view/31976414/2sAYBRFDUy) to learn more about the API routes and see examples of how each request and response should look.
-[Bourbon Collective Deployed Postman Look](https://www.loom.com/share/215711e4ab3945ae9329b145c7635350?sid=9c70b0ff-d60c-4a4c-ab04-941a4d41e3c3)
+
+[Bourbon Collective Deployed Postman Loom](https://www.loom.com/share/215711e4ab3945ae9329b145c7635350?sid=9c70b0ff-d60c-4a4c-ab04-941a4d41e3c3)
 
 ## 📋 Project Board
 
