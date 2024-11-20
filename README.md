@@ -1,7 +1,5 @@
 # BEBourbonCollective 🥃
 
-[Technologies](#technologies) | [Getting Started](#getting-started) | [API Endpoints](#api-endpoints) | [Postman Documentation](#postman-documentation) | [Project Owner](#collaborators)
-
 This is the server-side repository for the full-stack app, **Bourbon Collective** — a user-friendly platform where collectors can catalog their bourbons, view other users’ collections, and propose trades. By providing a space to manage collections and connect with fellow enthusiasts for trading, Bourbon Collective enables users to build their ideal collections while fostering community and discovery.
 
 ### 👤 Ideal User
