@@ -7,5 +7,7 @@
         public User User { get; set; }
         public int BourbonId { get; set; }
         public Bourbon Bourbon { get; set; }
+        public bool OpenBottle { get; set; }
+        public bool EmptyBottle { get; set; }
     }
 }

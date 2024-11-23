@@ -32,6 +32,11 @@ namespace BEBourbonCollective
                 .WithMany()
                 .HasForeignKey(tr => tr.RequestingBourbonId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.UserBourbons)
+                .WithOne(ub => ub.User)
+                .HasForeignKey(ub => ub.UserId);
         }
     }
 }

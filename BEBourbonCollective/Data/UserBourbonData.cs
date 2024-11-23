@@ -10,7 +10,9 @@ namespace BEBourbonCollective.Data
             {
                 Id = 1,
                 UserId = 1,
-                BourbonId = 1
+                BourbonId = 1,
+                OpenBottle = true,
+                EmptyBottle = false,
             }
         };
 

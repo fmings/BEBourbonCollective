@@ -42,6 +42,8 @@ namespace BEBourbonCollective.Repositories
             }
 
             userBourbonToUpdate.UserId = updatedUserBourbon.UserId;
+            userBourbonToUpdate.OpenBottle = updatedUserBourbon.OpenBottle;
+            userBourbonToUpdate.EmptyBottle = updatedUserBourbon.EmptyBottle;
             dbContext.SaveChangesAsync();
             return userBourbonToUpdate;
         }
