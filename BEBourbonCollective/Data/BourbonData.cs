@@ -13,8 +13,6 @@ namespace BEBourbonCollective.Models
                 DistilleryId = 1,
                 Name = "Buffalo Trace Kentucky Straight Bourbon Whiskey",
                 Image= "https://curiada.com/cdn/shop/products/BuffaloTrace1LTransp_1024x1024.png?v=1669377439",
-                OpenBottle = true,
-                EmptyBottle = false,
             },
 
             new Bourbon
@@ -24,8 +22,6 @@ namespace BEBourbonCollective.Models
                 DistilleryId = 2,
                 Name = "Straight Bourbon Whiskey",
                 Image="https://whiskyandwhiskey.com/cdn/shop/products/Bourbon-Bottle.png?v=1654035434",
-                OpenBottle = false,
-                EmptyBottle = false,
             },
         };
     }

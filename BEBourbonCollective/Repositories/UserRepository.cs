@@ -30,13 +30,17 @@ namespace BEBourbonCollective.Repositories
          // Get Single User
          public async Task<User?> GetSingleUserAsync(int id)
         {
-            return await dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+            return await dbContext.Users
+                   .Include(u => u.UserBourbons)
+                   .FirstOrDefaultAsync(u => u.Id == id);
         }
 
         // Get All Users
         public async Task<List<User>> GetAllUsersAsync()
         {
-            return await dbContext.Users.ToListAsync();
+            return await dbContext.Users
+                .Include(u => u.UserBourbons)
+                .ToListAsync();
         }
 
         // Update Single User
