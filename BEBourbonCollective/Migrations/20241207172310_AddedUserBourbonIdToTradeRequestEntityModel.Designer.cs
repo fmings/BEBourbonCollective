@@ -2,6 +2,7 @@
 using BEBourbonCollective;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BEBourbonCollective.Migrations
 {
     [DbContext(typeof(BourbonCollectiveDbContext))]
-    partial class BourbonCollectiveDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241207172310_AddedUserBourbonIdToTradeRequestEntityModel")]
+    partial class AddedUserBourbonIdToTradeRequestEntityModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,19 +186,16 @@ namespace BEBourbonCollective.Migrations
                     b.Property<int>("RequestedFromBourbonId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("RequestedFromUserBourbonId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("RequestedFromUserId")
                         .HasColumnType("integer");
 
                     b.Property<int>("RequestingBourbonId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("RequestingUserBourbonId")
+                    b.Property<int>("RequestingUserId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("RequestingUserId")
+                    b.Property<int>("UserBourbonId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
