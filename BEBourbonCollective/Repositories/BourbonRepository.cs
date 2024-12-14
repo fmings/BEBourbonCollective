@@ -18,6 +18,8 @@ namespace BEBourbonCollective.Repositories
         {
             return await dbContext.Bourbons
                 .Include(b => b.Distillery)
+                .OrderBy(b => b.Distillery.Name)
+                .ThenBy(b => b.Name)
                 .ToListAsync();
         }
 

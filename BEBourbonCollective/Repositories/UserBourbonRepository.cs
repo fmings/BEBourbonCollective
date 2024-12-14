@@ -20,6 +20,8 @@ namespace BEBourbonCollective.Repositories
                 .Include(ub => ub.User)
                 .Include(ub => ub.Bourbon)
                     .ThenInclude(b => b.Distillery)
+                .OrderBy(b => b.Bourbon.Distillery.Name)
+                .ThenBy(b => b.Bourbon.Name)
                 .ToListAsync();
 
             return userBourbons;
