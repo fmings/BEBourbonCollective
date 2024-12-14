@@ -16,7 +16,9 @@ namespace BEBourbonCollective.Repositories
         // Get All Distilleries
         public async Task<List<Distillery>> GetAllDistilleries()
         {
-            return await dbContext.Distilleries.ToListAsync();
+            return await dbContext.Distilleries
+                .OrderBy(d => d.Name)
+                .ToListAsync();
         }
 
         // Create a New Distillery
