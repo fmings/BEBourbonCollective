@@ -30,6 +30,12 @@ namespace BEBourbonCollective.Endpoints
             {
                 return await bourbonService.DeleteSingleBourbonAsync(id);
             });
+
+            // Search Bourbons
+            app.MapGet("/bourbons/search", async (IBourbonService bourbonService, string searchValue) =>
+            {
+                return await bourbonService.SearchBourbonsAsync(searchValue);
+            });
         }
     }
 }
