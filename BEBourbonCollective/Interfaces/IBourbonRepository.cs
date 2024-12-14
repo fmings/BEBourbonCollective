@@ -12,5 +12,8 @@ namespace BEBourbonCollective.Interfaces
 
         Task<Bourbon?> DeleteSingleBourbonAsync(int id);
 
+        Task<List<Bourbon?>> SearchBourbonsAsync(string searchValue);
+
+
     }
 }

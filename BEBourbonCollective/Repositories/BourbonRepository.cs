@@ -60,5 +60,20 @@ namespace BEBourbonCollective.Repositories
             await dbContext.SaveChangesAsync();
             return bourbonToDelete;
         }
+
+        // Search Bourbons
+
+        public async Task<List<Bourbon?>> SearchBourbonsAsync(string searchValue)
+        {
+            var searchResults = await dbContext.Bourbons
+                .Include(bourbon => bourbon.Distillery)
+                .Where(bourbon =>
+                    bourbon.Name.ToLower().Contains(searchValue.ToLower()) ||
+                    bourbon.Distillery.Name.ToLower().Contains(searchValue.ToLower())
+                )
+                .ToListAsync();
+
+            return searchResults;
+        }
     }
 }
